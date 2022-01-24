@@ -27,6 +27,7 @@ export const actions = {
     insertHTML: 'html',
     insertImage: 'image',
     insertVideo: 'video',
+    insertImageLink: 'imageLink',
     fontSize: 'fontSize',
     fontName: 'fontName',
     setSubscript: 'subscript',

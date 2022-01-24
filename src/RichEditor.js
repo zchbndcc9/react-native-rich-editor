@@ -367,6 +367,14 @@ export default class RichTextEditor extends Component {
     }
 
     /**
+     * @param url
+     * @param thumnbail
+     * @param [style]
+     */
+    insertImageLink(url, thumbnail, style) {
+        this.sendAction(actions.insertImageLink, 'result', { url, thumbnail }, style);
+    }
+    /**
      * @param attributes
      * @param [style]
      */

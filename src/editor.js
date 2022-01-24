@@ -320,6 +320,18 @@ function createHTML(options = {}) {
                     }
                 }
             },
+            imageLink: {
+                result: function(data, style) {
+                    data = data || {};
+                    if (data.url) {
+                        exec(
+                            'insertHTML',
+                            "<a href="+ data.url +" style='"+ (style || '')+"'><img src='"+ data.thumbnail +"'></a>"
+                        );
+                        Actions.UPDATE_HEIGHT();
+                    }
+                }
+            },
             html: {
                 result: function (html){
                     if (html){
