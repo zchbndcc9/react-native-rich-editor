@@ -326,9 +326,8 @@ function createHTML(options = {}) {
                     if (data.url) {
                         exec(
                             'insertHTML',
-                            "<a href="+ data.url +" style='"+ (style || '')+"'><img src='"+ data.thumbnail +"'></a>"
+                            "<a href="+ data.url +" style='"+ (style || '')+"'><img src="+ data.thumbnail + " onload=" + Actions.UPDATE_HEIGHT() + "></a>"
                         );
-                        Actions.UPDATE_HEIGHT();
                     }
                 }
             },
