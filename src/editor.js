@@ -324,10 +324,18 @@ function createHTML(options = {}) {
                 result: function(data, style) {
                     data = data || {};
                     if (data.url) {
-                        exec(
-                            'insertHTML',
-                            "<a href="+ data.url +" style='"+ (style || '')+"'><img src="+ data.thumbnail + " onload=" + Actions.UPDATE_HEIGHT() + "></a>"
-                        );
+                        // Create dummy image so that we can track the loading
+                        // state of the image. Only insert it when the url has
+                        // successfully loaded
+                        const img = new Image();
+                        img.src = data.thumbnail;
+                        img.onload = function() {
+                            exec(
+                                'insertHTML',
+                                "<a href="+ data.url +" style='"+ (style || '')+"'><img src="+ data.thumbnail + "></a>"
+                            );
+                            Actions.UPDATE_HEIGHT();
+                        }
                     }
                 }
             },
